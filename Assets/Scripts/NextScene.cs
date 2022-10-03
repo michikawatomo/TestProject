@@ -19,7 +19,12 @@ public class NextScene : MonoBehaviour
 
     public void ChangeNextScene()
     {
-        SceneManager.LoadScene("Stage1-2", LoadSceneMode.Additive);
-        SceneManager.UnloadSceneAsync("Stage1-1");
+        var gc = GameObject.FindGameObjectWithTag("GameController").GetComponent<GameController>();
+
+        if (gc != null)
+        {
+            gc.ChangeNextStage();
+        }
+
     }
 }
